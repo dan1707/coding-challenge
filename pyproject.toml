@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "coding-challenge"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Ritter <head@daniel-ritter.biz>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["coding_challenge"]
+
+[tool.coverage.report]
+show_missing = true
