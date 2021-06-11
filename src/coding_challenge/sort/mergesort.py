@@ -16,7 +16,7 @@ class MergeSort(Sorter):
         return MergeSort.merge(left_list, right_list, comparator)
 
     @staticmethod
-    def merge(left: List[int], right: List[int], comparator) -> List[int]:
+    def merge(left: List[int], right: List[int], comparator: CmpCallable) -> List[int]:
         merged_list = []
         left_index = right_index = 0
 
