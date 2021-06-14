@@ -32,14 +32,6 @@ def test_generic_quality_degradation_and_sell_in_decrement():
     assert regular_item.quality == 0
 
 
-def test_generic_quality_never_more_than_50():
-    regular_item = Item("Regular Item", 1, 51)
-    gilded_rose = GildedRose([regular_item])
-
-    gilded_rose.update_quality()
-    assert regular_item.quality == 50
-
-
 def test_generic_quality_never_negative():
     regular_item = Item("Regular Item", 0, 0)
     gilded_rose = GildedRose([regular_item])
@@ -68,6 +60,11 @@ def test_aged_brie_quality_increases_over_time():
     assert aged_brie.sell_in == -2
     assert aged_brie.quality == 6
 
+    aged_brie.quality = 50
+    gilded_rose.update_quality()
+    assert aged_brie.sell_in == -3
+    assert aged_brie.quality == 50
+
 
 def test_sulfuras_never_ages_and_no_quality_degradation():
     sulfuras = Item('Sulfuras, Hand of Ragnaros', 1, 10)
@@ -75,11 +72,11 @@ def test_sulfuras_never_ages_and_no_quality_degradation():
 
     gilded_rose.update_quality()
     assert sulfuras.sell_in == 1
-    assert sulfuras.quality == 10
+    assert sulfuras.quality == 80
 
     gilded_rose.update_quality()
     assert sulfuras.sell_in == 1
-    assert sulfuras.quality == 10
+    assert sulfuras.quality == 80
 
 
 def test_backstage_passes_quality_rules():
