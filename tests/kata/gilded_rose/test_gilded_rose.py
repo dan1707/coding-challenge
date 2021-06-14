@@ -32,14 +32,6 @@ def test_generic_quality_degradation_and_sell_in_decrement():
     assert regular_item.quality == 0
 
 
-# def test_generic_quality_never_more_than_50():
-#     regular_item = Item("Regular Item", 1, 52)
-#     gilded_rose = GildedRose([regular_item])
-#
-#     gilded_rose.update_quality()
-#     assert regular_item.quality == 50
-
-
 def test_generic_quality_never_negative():
     regular_item = Item("Regular Item", 0, 0)
     gilded_rose = GildedRose([regular_item])
