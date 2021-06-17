@@ -42,15 +42,15 @@ def test_parse_args_fail_with_unknown_argument():
         parser.parse_args(['-L'])
 
 
-def test_bool_flag_with_argument_returns_true():
-    parser = ArgumentParser()
-    parser.add_argument('l', BooleanArgument)
-    parser.parse_args(['-l'])
-    assert parser.l is True
-
-
-def test_bool_flag_without_argument_returns_false():
+def test_get_item_with_unknown_flag_returns_none():
     parser = ArgumentParser()
     parser.add_argument('l', BooleanArgument)
     parser.parse_args([])
-    assert parser.l is False
+    assert parser.x is None
+
+
+def test_get_item_with_known_flag_but_not_in_args_returns_default_value():
+    parser = ArgumentParser()
+    parser.add_argument('l', BooleanArgument)
+    parser.parse_args([])
+    assert parser.l is BooleanArgument.default_value()

@@ -28,3 +28,17 @@ class BooleanArgument(ArgumentHandler[bool]):
     def default_value() -> bool:
         return False
 
+
+class StringArgument(ArgumentHandler[str]):
+
+    @staticmethod
+    def marshal(args: List[str]) -> (str, List[str]):
+        try:
+            value = args.pop(0)
+        except(IndexError):
+            raise IndexError(f'Missing value of string flag')
+        return value, args
+
+    @staticmethod
+    def default_value() -> str:
+        return ''

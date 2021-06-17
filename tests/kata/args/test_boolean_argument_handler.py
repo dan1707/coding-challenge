@@ -3,7 +3,7 @@ from coding_challenge.kata.args.handler import BooleanArgument
 
 def test_marshal_does_not_consume_args():
     args = ['1', '2']
-    _, r_args = BooleanArgument.marshal(args.copy())
+    _, r_args = BooleanArgument.marshal(args)
     assert args == r_args
 
 

@@ -31,7 +31,7 @@ class ArgumentParser():
     def parse_args(self, args: List[str]):
         _args = args.copy()
         while _args:
-            raw_flag = _args.pop()
+            raw_flag = _args.pop(0)
             match = VALID_FLAG_PATTERN.match(raw_flag)
             if match is None:
                 raise InvalidArgumentError(f'Unexpected flag format: "{raw_flag}". Must be -<flag character>')
