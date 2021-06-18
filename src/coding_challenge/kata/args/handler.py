@@ -36,7 +36,7 @@ class StringArgument(ArgumentHandler[str]):
         try:
             value = args.pop(0)
         except(IndexError):
-            raise IndexError(f'Missing value of string flag')
+            raise IndexError('Missing value of string flag')
         return value, args
 
     @staticmethod
@@ -51,7 +51,7 @@ class IntArgument(ArgumentHandler[int]):
         try:
             value = args.pop(0)
         except(IndexError):
-            raise IndexError(f'Missing value of int flag')
+            raise IndexError('Missing value of int flag')
         try:
             int_value = int(value)
         except(ValueError):

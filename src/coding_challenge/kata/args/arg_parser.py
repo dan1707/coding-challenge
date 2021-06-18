@@ -46,6 +46,6 @@ class ArgumentParser():
     def __getattr__(self, flag: str):
         if flag in self._arguments:
             return self._arguments[flag]
-        if flag not in self._arguments and flag in self._schema:
+        if flag in self._schema:
             handler = self._schema[flag]
             return handler.default_value()

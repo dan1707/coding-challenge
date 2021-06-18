@@ -13,7 +13,7 @@ def test_marshal_does_consume_and_return_next_arg():
 def test_marshal_fails_with_non_integer_argument():
     args = ['aa', 'bb']
     with pytest.raises(ValueError):
-        value, r_args = IntArgument.marshal(args)
+        _, _ = IntArgument.marshal(args)
 
 
 def test_marshal_fails_without_next_arg():

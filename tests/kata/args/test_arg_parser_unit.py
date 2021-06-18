@@ -38,6 +38,7 @@ def test_parse_args_fail_with_invalid_argument():
 def test_parse_args_fail_with_unknown_argument():
     parser = ArgumentParser()
     parser.add_argument('l', BooleanArgument)
+    # TODO check if we fail with second error
     with pytest.raises(InvalidArgumentError):
         parser.parse_args(['-L'])
 
